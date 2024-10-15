@@ -115,5 +115,8 @@ int main (){
     //run the insertion sort algorithm on the array
     runInsertionSort(array, outfile);
 
+    //close the file
+    outfile.close();
+
     return 0;
 }
