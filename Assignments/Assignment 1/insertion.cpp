@@ -101,17 +101,17 @@ int main (){
     //run the insertion sort algorithm on the array
     runInsertionSort(array, outfile);
 
-    //generate an array of 500000
-    array = generateArray(500000);
+    // //generate an array of 500000
+    // array = generateArray(500000);
 
-    //run the insertion sort algorithm on the array
-    runInsertionSort(array, outfile);
+    // //run the insertion sort algorithm on the array
+    // runInsertionSort(array, outfile);
 
-    //generate an array of 1000000
-    array = generateArray(1000000);
+    // //generate an array of 1000000
+    // array = generateArray(1000000);
 
-    //run the insertion sort algorithm on the array
-    runInsertionSort(array, outfile);
+    // //run the insertion sort algorithm on the array
+    // runInsertionSort(array, outfile);
 
     //close the file
     outfile.close();
