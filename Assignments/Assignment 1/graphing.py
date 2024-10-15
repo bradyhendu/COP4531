@@ -4,7 +4,6 @@ import pandas as pd
 #read CSV
 def read_csv(file):
     data = pd.read_csv(file)
-    print(data)
     return data
 
 #plot data
