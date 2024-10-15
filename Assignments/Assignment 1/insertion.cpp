@@ -1,4 +1,5 @@
 #include <iostream>
+#include <chrono>
 //include the generateArray function from generatearrays.cpp
 #include "generatearrays.h"
 
@@ -33,12 +34,15 @@ int main (){
     }
     std::cout << std::endl;
     //sort the array
+    auto start = std::chrono::high_resolution_clock::now();
     insertionSort(arr, n);
+    auto end = std::chrono::high_resolution_clock::now();
     //print the array after sorting
     std::cout << "Array after sorting: ";
     for (int i = 0; i < n; ++i) {
         std::cout << arr[i] << " ";
     }
-    std::cout << std::endl;
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+    std::cout << std::endl << "Time it takes to run operation: " << duration.count() << std::endl;
     return 0;
 }
