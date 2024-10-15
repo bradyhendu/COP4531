@@ -1,8 +1,6 @@
 #include <iostream>
-#include <vector>
 
-void insertionSort(std::vector<int>& arr) {
-    int n = arr.size();
+void insertionSort(int arr[], int n) {
     for (int i = 1; i < n; ++i) {
         int key = arr[i];
         int j = i - 1;
