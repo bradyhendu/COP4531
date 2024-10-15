@@ -1,4 +1,6 @@
 #include <iostream>
+//include the generateArray function from generatearrays.cpp
+#include "generatearrays.h"
 
 void insertionSort(int arr[], int n) {
     for (int i = 1; i < n; ++i) {
@@ -13,4 +15,30 @@ void insertionSort(int arr[], int n) {
         }
         arr[j + 1] = key;
     }
+}
+
+int main (){
+    //generate an array of 10 random integers
+    std::vector<int> array = generateArray(10);
+    int n = array.size();
+    int arr[n];
+    //copy the vector to an array
+    for (int i = 0; i < n; ++i) {
+        arr[i] = array[i];
+    }
+    //print the array before sorting
+    std::cout << "Array before sorting: ";
+    for (int i = 0; i < n; ++i) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+    //sort the array
+    insertionSort(arr, n);
+    //print the array after sorting
+    std::cout << "Array after sorting: ";
+    for (int i = 0; i < n; ++i) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+    return 0;
 }
