@@ -23,6 +23,9 @@ if __name__ == "__main__":
     data = read_csv("merge.csv")
     plot_data(data, "Merge Sort")
     
+    data = read_csv("heapsort.csv")
+    plot_data(data, "Heap Sort")
+    
     
 
 
