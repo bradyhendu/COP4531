@@ -26,6 +26,9 @@ if __name__ == "__main__":
     data = read_csv("heapsort.csv")
     plot_data(data, "Heap Sort")
     
+    data = read_csv("quicksort.csv")
+    plot_data(data, "Quick Sort")
+    
     
 
 

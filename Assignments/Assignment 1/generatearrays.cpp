@@ -17,3 +17,16 @@ vector<int> generateArray(int N) {
 
     return array;
 }
+
+vector<float> generateArrayReals(int N) {
+    vector<float> array(N);
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_real_distribution<> dis(0, 0.99);
+
+    for (int i = 0; i < N; ++i) {
+        array[i] = dis(gen);
+    }
+
+    return array;
+}
