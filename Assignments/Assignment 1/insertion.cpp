@@ -35,6 +35,9 @@ void runInsertionSort(std::vector<int>& arr, std::ofstream& outfile) {
 }
 
 int main (){
+    //print a message to the user
+    std::cout << "Running insertion sort file" << std::endl;
+
     //open a file to write the results to
     std::ofstream outfile("insertion.csv");
 
@@ -47,74 +50,20 @@ int main (){
     outfile << "Array Size,Time" << std::endl;
 
 
-    //generate an array of 10 random integers
-    std::vector<int> array = generateArray(10);
+        // Array sizes to be tested
+    std::vector<int> sizes = {10, 50, 100, 500, 1000, 5000, 10000, 50000, 100000, 500000, 1000000};
 
-    //run the insertion sort algorithm on the array
-    runInsertionSort(array, outfile);
-
-    //generate an array of 50
-    array = generateArray(50);
-
-    //run the insertion sort algorithm on the array
-    runInsertionSort(array, outfile);
-
-    //generate an array of 100
-    array = generateArray(100);
-
-    //run the insertion sort algorithm on the array
-    runInsertionSort(array, outfile);
-
-    //generate an array of 500
-    array = generateArray(500);
-
-    //run the insertion sort algorithm on the array
-    runInsertionSort(array, outfile);
-
-    //generate an array of 1000
-    array = generateArray(1000);
-
-    //run the insertion sort algorithm on the array
-    runInsertionSort(array, outfile);
-
-    //generate an array of 5000
-    array = generateArray(5000);
-
-    //run the insertion sort algorithm on the array
-    runInsertionSort(array, outfile);
-
-    //generate an array of 10000
-    array = generateArray(10000);
-
-    //run the insertion sort algorithm on the array
-    runInsertionSort(array, outfile);
-
-    //generate an array of 50000
-    array = generateArray(50000);
-
-    //run the insertion sort algorithm on the array
-    runInsertionSort(array, outfile);
-
-    //generate an array of 100000
-    array = generateArray(100000);
-
-    //run the insertion sort algorithm on the array
-    runInsertionSort(array, outfile);
-
-    //generate an array of 500000
-    array = generateArray(500000);
-
-    //run the insertion sort algorithm on the array
-    runInsertionSort(array, outfile);
-
-    //generate an array of 1000000
-    array = generateArray(1000000);
-
-    //run the insertion sort algorithm on the array
-    runInsertionSort(array, outfile);
+    // Loop over each size, generate array, and run heap sort
+    for (int size : sizes) {
+        std::vector<int> array = generateArray(size);
+        runInsertionSort(array, outfile);
+    }
 
     //close the file
     outfile.close();
+
+    //print a message to the user
+    std::cout << "Insertion sort file has finished running" << std::endl;
 
     return 0;
 }

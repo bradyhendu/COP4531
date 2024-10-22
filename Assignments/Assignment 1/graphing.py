@@ -29,6 +29,9 @@ if __name__ == "__main__":
     data = read_csv("quicksort.csv")
     plot_data(data, "Quick Sort")
     
+    data = read_csv("bucket.csv")
+    plot_data(data, "Bucket Sort")
+    
     
 
 

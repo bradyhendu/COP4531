@@ -56,6 +56,9 @@ void runBucketSort(std::vector<float>& arr, std::ofstream& outfile){
 
 
 int main(){
+    //print a message to the user
+    std::cout << "Running bucket sort file" << std::endl;
+
     //open a file to write the results to
     std::ofstream outfile("bucket.csv");
 
@@ -67,75 +70,21 @@ int main(){
     //write the header of the csv file
     outfile << "Array Size,Time" << std::endl;
 
-    //generate an array of 10 random reals
-    std::vector<float> array = generateArrayReals(10);
+    // Array sizes to be tested
+    std::vector<int> sizes = {10, 50, 100, 500, 1000, 5000, 10000, 50000, 100000, 500000, 1000000};
 
-    //run the bucket sort algorithm on the array
-    runBucketSort(array, outfile);
-
-    //generate an array of 50 random reals
-    array = generateArrayReals(50);
-
-    //run the bucket sort algorithm on the array
-    runBucketSort(array, outfile);
-
-    //generate an array of 100 random reals
-    array = generateArrayReals(100);
-
-    //run the bucket sort algorithm on the array
-    runBucketSort(array, outfile);
-
-    //generate an array of 500 random reals
-    array = generateArrayReals(500);
-
-    //run the bucket sort algorithm on the array
-    runBucketSort(array, outfile);
-
-    //generate an array of 1000 random reals
-    array = generateArrayReals(1000);
-
-    //run the bucket sort algorithm on the array
-    runBucketSort(array, outfile);
-
-    //generate an array of 5000 random reals
-    array = generateArrayReals(5000);
-
-    //run the bucket sort algorithm on the array
-    runBucketSort(array, outfile);
-
-    //generate an array of 10000 random reals
-    array = generateArrayReals(10000);
-
-    //run the bucket sort algorithm on the array
-    runBucketSort(array, outfile);
-
-    //generate an array of 50000 random reals
-    array = generateArrayReals(50000);
-
-    //run the bucket sort algorithm on the array
-    runBucketSort(array, outfile);
-
-    //generate an array of 100000 random reals
-    array = generateArrayReals(100000);
-
-    //run the bucket sort algorithm on the array
-    runBucketSort(array, outfile);
-
-    //generate an array of 500000 random reals
-    array = generateArrayReals(500000);
-
-    //run the bucket sort algorithm on the array
-    runBucketSort(array, outfile);
-
-    //generate an array of 1000000 random reals
-    array = generateArrayReals(1000000);
-
-    //run the bucket sort algorithm on the array
-    runBucketSort(array, outfile);
+    // Loop over each size, generate array, and run heap sort
+    for (int size : sizes) {
+        std::vector<float> array = generateArrayReals(size);
+        runBucketSort(array, outfile);
+    }
 
     
     //close the file
     outfile.close();
+
+    //print a message to the user
+    std::cout << "Bucket sort file has finished running" << std::endl;
 
     return 0;
 }
