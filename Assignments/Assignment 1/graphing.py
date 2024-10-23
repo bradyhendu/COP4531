@@ -32,6 +32,12 @@ if __name__ == "__main__":
     data = read_csv("bucket.csv")
     plot_data(data, "Bucket Sort")
     
+    data = read_csv("counting.csv")
+    plot_data(data, "Counting Sort")
+    
+    data = read_csv("radix.csv")
+    plot_data(data, "Radix Sort")
+    
     
 
 
