@@ -76,6 +76,9 @@ void runMergeSort(std::vector<int>& arr, std::ofstream& outfile) {
 }
 
 int main(){
+    //print a message to the user
+    std::cout << "Running merge sort file" << std::endl;
+
     //open a file to write the results to
     std::ofstream outfile("merge.csv");
 
@@ -98,6 +101,9 @@ int main(){
 
     //close the file
     outfile.close();
+
+    //print a message to the user
+    std::cout << "Merge sort file complete" << std::endl;
 
     return 0;
 }

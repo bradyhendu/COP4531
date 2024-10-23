@@ -2,7 +2,7 @@
 CXX := g++
 
 # Define the targets
-TARGETS := merge insertion
+TARGETS := merge bucket quicksort heapsort radix counting insertion
 
 # Rule for all targets
 all: $(TARGETS)
@@ -37,12 +37,12 @@ counting: counting.cpp generatearrays.cpp
 
 run: $(TARGETS)
 	.\merge
-	.\insertion
 	.\bucket
 	.\quicksort
 	.\heapsort
 	.\radix
 	.\counting
+	.\insertion
 
 # Clean up object files and executables
 clean:
