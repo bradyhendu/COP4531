@@ -1,0 +1,52 @@
+# COP4531: Programming Assignment 1
+
+## Overview
+
+This assignment involves implementing various sorting algorithms and graphing their performance using `graphing.py`. The project is structured to allow easy execution and testing of the sorting algorithms.
+
+## Files
+
+- `counting.cpp`: Contains the implementation of the counting sort algorithm.
+- `bucket.cpp`: Contains the implementation of the bucket sort algorithm.
+- `radix.cpp`: Contains the implementation of the radix sort algorithm.
+- `merge.cpp`: Contains the implementation of the merge sort algorithm.
+- `quicksort.cpp`: Contains the implementation of the quick sort algorithm.
+- `heapsort.cpp`: Contains the implementation of the heap sort algorithm.
+- `insertion.cpp`: Contains the implementation of the insertion sort algorithm.
+- `generatearrays.h`: Contains the function to generate random arrays.
+- `generatearrays.cpp`: Contains the implementation of the function to generate random arrays.
+- `graphing.py`: Contains functions to graph the performance of the sorting algorithm based on the output of all sorting files.
+- `Makefile`: Automates the execution of the sorting algorithms and the generation of graphs.
+- `README.md`: This file, providing instructions on how to run the code.
+
+## Python Imports
+
+The following Python libraries are used in this project:
+
+- `matplotlib.pyplot`: For graphing the performance of the sorting algorithms.
+- `pandas`: For data manipulation and analysis.
+
+## Data Generation
+
+Arrays are generated using the `generatearrays.cpp` file. The arrays are generated using the `generateArray` and `generateArrayReals` function, which takes the size of the array as an argument and returns a vector of random integers. I used the random module to generate random integers and append them to the vector.
+
+## Running the Code
+
+To run the code, follow these steps:
+
+1. Make sure you have the python libraries `matplotlib` and `pandas` installed.
+2. Run the following command to compile the sorting algorithms:
+3. In order to compile the sorting algorithms, run the following command:
+   `make run`
+4. Wait until all the sorting algorithms have been compiled. The insertion sort algorithm may take a while to execute.
+5. Once insertion sort is done, run the following command to generate the graphs:
+   `python graphing.py`
+6. The graphs will pop up in a new window.
+
+## Makefile
+
+The `Makefile` is used to automate the execution of the sorting algorithms and the generation of graphs. It contains the following targets:
+
+- `all`: Runs all sorting algorithms and generates graphs.
+- `clean`: Removes any generated files.
+- `run`: Compiles all sorting algorithms.
