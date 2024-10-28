@@ -35,18 +35,18 @@ Arrays are generated using the `generatearrays.cpp` file. The arrays are generat
 To run the code, follow these steps:
 
 1. Make sure you have the python libraries `matplotlib` and `pandas` installed.
-2. Run the following command to compile the sorting algorithms:
-3. In order to compile the sorting algorithms, run the following command:
+``` pip install matplotlib pandas ```
+2. In order to compile the sorting algorithms, run the following command:
    `make run`
-4. Wait until all the sorting algorithms have been compiled. The insertion sort algorithm may take a while to execute.
-5. Once insertion sort is done, run the following command to generate the graphs:
+3. Wait until all the sorting algorithms have been compiled. The insertion sort algorithm may take a while to execute.
+4. Once insertion sort is done, run the following command to generate the graphs:
    `python graphing.py`
-6. The graphs will pop up in a new window.
+5. The graphs will pop up in a new window.
 
 ## Makefile
 
 The `Makefile` is used to automate the execution of the sorting algorithms and the generation of graphs. It contains the following targets:
 
-- `all`: Runs all sorting algorithms and generates graphs.
+- `all`: Com
 - `clean`: Removes any generated files.
-- `run`: Compiles all sorting algorithms.
+- `run`: Compiles all sorting algorithms and executes them, creating the data files.

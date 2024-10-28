@@ -46,7 +46,7 @@ run: $(TARGETS)
 
 # Clean up object files and executables
 clean:
-	rm -f $(TARGETS)
+	del -f merge.exe bucket.exe quicksort.exe heapsort.exe radix.exe counting.exe insertion.exe
 
 # PHONY targets to avoid conflicts with files named 'all' or 'clean'
 .PHONY: all clean
