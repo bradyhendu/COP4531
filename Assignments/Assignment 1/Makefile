@@ -44,9 +44,9 @@ run: $(TARGETS)
 	.\counting
 	.\insertion
 
-# Clean up object files and executables
+# Clean up csv files and executables
 clean:
-	del -f merge.exe bucket.exe quicksort.exe heapsort.exe radix.exe counting.exe insertion.exe
+	del -f merge.exe bucket.exe quicksort.exe heapsort.exe radix.exe counting.exe insertion.exe merge.csv bucket.csv quicksort.csv heapsort.csv radix.csv counting.csv insertion.csv
 
 # PHONY targets to avoid conflicts with files named 'all' or 'clean'
 .PHONY: all clean
