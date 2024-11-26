@@ -5,7 +5,7 @@
 #include <fstream>
 
 const unsigned int MODULO = 2147483647; // 2^31 - 1 (prime modulus)
-const unsigned int PRIMITIVE_ROOT = 7; // Generator g
+const unsigned int PRIMITIVE_ROOT = 7;  // Generator g
 
 // Modular multiplication
 unsigned int modmult(unsigned int a, unsigned int b) {
@@ -27,26 +27,19 @@ unsigned int modexp(unsigned int base, unsigned int exp) {
     return result;
 }
 
-// Generate random x values
-unsigned int generateRandomX(std::mt19937 &rng) {
-    std::uniform_int_distribution<unsigned int> dist(1, MODULO - 1); // x ∈ [1, MODULO-1]
-    return dist(rng);
-}
-
-// Baby-Step Giant-Step Algorithm
-unsigned int discreteLog(unsigned int g, unsigned int x, int hashTableSize, unsigned int& steps) {
+// Baby-step giant-step algorithm
+unsigned int discreteLog(unsigned int g, unsigned int x, unsigned int hashTableSize, unsigned int& steps) {
     unsigned int m = (unsigned int)sqrt(MODULO) + 1;
 
     // Step 1: Create hash table for baby steps
     std::unordered_map<unsigned int, unsigned int> hashTable;
     unsigned int babyStep = 1;
 
-    steps = 0; // Reset steps counter
+    steps = 0;
     for (unsigned int j = 0; j < m; ++j) {
-        unsigned int index = babyStep % hashTableSize; // Ensure values fit within the table size
-        hashTable[babyStep] = j;
-        babyStep = modmult(babyStep, g);
-        steps++; // Count baby step
+        hashTable[babyStep] = j; // Store baby step value and index
+        babyStep = modmult(babyStep, g); // g^k (mod MODULO)
+        steps++; // Count baby step insertion
     }
 
     // Step 2: Compute giant steps
@@ -54,15 +47,15 @@ unsigned int discreteLog(unsigned int g, unsigned int x, int hashTableSize, unsi
     unsigned int current = x;
 
     for (unsigned int i = 0; i < m; ++i) {
-        steps++; // Count giant step
+        steps++; // Count giant step computation
         auto it = hashTable.find(current);
         if (it != hashTable.end()) {
-            return i * m + it->second;
+            return i * m + it->second; // Match found
         }
-        current = modmult(current, giantStep);
+        current = modmult(current, giantStep); // x * g^(-jm) mod MODULO
     }
 
-    return -1; // Logarithm not found
+    return -1;  // Logarithm not found
 }
 
 int main() {
@@ -78,19 +71,16 @@ int main() {
     unsigned int m = (unsigned int)sqrt(MODULO) + 1; // Precompute m
 
     for (int n = 10; n <= 17; ++n) {
-        int hashTableSize = 1 << n; // Hash table size is exactly 2^n
+        unsigned int hashTableSize = 1 << n; // Hash table size is exactly 2^n
         unsigned int totalSteps = 0;
         int testCount = 1000;
 
         for (int i = 0; i < testCount; ++i) {
-            unsigned int x = generateRandomX(rng);
-            unsigned int steps = 0; // Track steps for each x
+            unsigned int x = rng() % MODULO; // Generate random x
+            unsigned int steps = 0;
             unsigned int result = discreteLog(PRIMITIVE_ROOT, x, hashTableSize, steps);
 
-            totalSteps += steps; // Accumulate actual steps
-            if (result == -1) {
-                std::cerr << "Discrete logarithm not found for x: " << x << std::endl;
-            }
+            totalSteps += steps; // Accumulate total steps
         }
 
         double averageSearchLength = (double)totalSteps / testCount;
@@ -105,6 +95,13 @@ int main() {
 
     return 0;
 }
+
+
+
+
+
+
+
 
 
 
